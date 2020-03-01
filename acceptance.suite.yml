@@ -1,0 +1,34 @@
+actor: AcceptanceTester
+modules:
+    enabled:
+        - Asserts
+        - Filesystem
+        - WebDriver:
+#            host: selenium-hub.tradesoft.ru
+            url: "%SITE_HOST%"
+            browser: chrome
+            restart: false
+            clear_cookies: false
+            wait: 25
+            window_size: 1920x1080
+            capabilities:
+                unexpectedAlertBehaviour: "accept"
+        - MultiDb\MultiDb
+        - \Helper\Acceptance
+    config:
+        MultiDb\MultiDb:
+            connectors:
+                 db_ar:
+                   dsn: "mysql:host=%MYSQL_HOST%;port=%MYSQL_PORT%;dbname=%MYSQL_DB_AR%"
+                   user: "%MYSQL_USER%"
+                   password: "%MYSQL_PASS%"
+                   dump: "db/ar_backup.sql"
+                   populate: false
+                   cleanup: false
+                 db_autoprice:
+                   dsn: "mysql:host=%MYSQL_HOST%;port=%MYSQL_PORT%;dbname=%MYSQL_DB_AUTOPRICE%"
+                   user: "%MYSQL_USER%"
+                   password: "%MYSQL_PASS%"
+                   dump: "db/autoprice_backup.sql"
+                   populate: false
+                   cleanup: false

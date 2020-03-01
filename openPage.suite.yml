@@ -1,0 +1,31 @@
+actor: OpenPageTester
+modules:
+    enabled:
+    - \Helper\OpenPage
+    - Asserts
+    - Filesystem
+    - PhpBrowser:
+          host: selenium-hub.tradesoft.ru
+          url: "%SITE_HOST%"
+          auth: ["admin", "123"]
+          timeout: 200
+    - REST:
+        depends: PhpBrowser
+    - MultiDb\MultiDb
+    config:
+        MultiDb\MultiDb:
+            connectors:
+                db_ar:
+                    dsn: "mysql:host=%MYSQL_HOST%;port=%MYSQL_PORT%;dbname=%MYSQL_DB_AR%"
+                    user: "%MYSQL_USER%"
+                    password: "%MYSQL_PASS%"
+                    dump: "db/ar_backup.sql"
+                    populate: false
+                    cleanup: false
+                db_autoprice:
+                    dsn: "mysql:host=%MYSQL_HOST%;port=%MYSQL_PORT%;dbname=%MYSQL_DB_AUTOPRICE%"
+                    user: "%MYSQL_USER%"
+                    password: "%MYSQL_PASS%"
+                    dump: "db/autoprice_backup.sql"
+                    populate: false
+                    cleanup: false

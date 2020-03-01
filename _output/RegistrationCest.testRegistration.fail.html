@@ -1,0 +1,529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" slick-uniqueid="3"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="title" content="список клиентов" />
+<title>список клиентов</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-76x76.png" sizes="76x76" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-120x120.png" sizes="120x120" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-144x144.png" sizes="144x144" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-152x152.png" sizes="152x152" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/_css/admin.css?7410" />
+<link rel="stylesheet" type="text/css" href="/_syscss/admin-3.0.css?7410" />
+<link rel="stylesheet" type="text/css" href="/_syscss/select.css?7410" />
+<link rel="stylesheet" type="text/css" href="/_syscss/jquery-ui-1.10.4/autocoplete/jquery-ui-1.10.4.autocomplete.css?7410" />
+<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?7410" />
+<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?7410"></script>
+<script type="text/javascript" src="/_syslib/mootools.js?7410"></script>
+<script type="text/javascript" src="/_syslib/mootools-more.js?7410"></script>
+<script type="text/javascript" src="/_syslib/lib.common.js?7410"></script>
+<script type="text/javascript" src="/_syslib/calendar/lib.calendar.js?7410"></script>
+<script type="text/javascript" src="/_syslib/calendar/calendar_settings.js?7410"></script>
+<script type="text/javascript" src="/_syslib/directory/lib.directory.js?7410"></script>
+<script type="text/javascript" src="/_syslib/advanced.select.js?7410"></script>
+<script type="text/javascript" src="/_syslib/autoresource/admin/eshop/clients.js?7410"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/core/jquery.ui.core.min.js?7410"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/menu/jquery.ui.menu.min.js?7410"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/autocoplete/jquery.ui.autocomplete.min.js?7410"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/autocoplete/selectAutocomplete.js?7410"></script>
+<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?7410"></script>
+<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?7410"></script>
+
+			<script type="text/javascript">
+				jqWar(document).ready(function() {
+		
+				setSearchAutocompleteField('form[name=search_code]:not(.search-form-footer) input[name=article]', 1);
+			
+				setSearchAutocompleteField('#search_article', 1);
+			
+				});		
+			</script>
+		<script>setCookie('l_test~~contragent_cst_id', '1');</script>
+
+<script>
+function setExportLink_customers(linkObj) {
+
+	var url = linkObj.href;
+	url = url.replace(/&amp;rowsLimit=[\d]*$/g,'');
+
+	try {
+		url = url + '&amp;rowsLimit=' + $('rowsLimitForExport_customers').value;
+	} catch(e) {}
+
+	linkObj.href = url;
+
+	return true;
+
+}
+</script>
+					<script type="text/javascript" async="" src="http://media.reformal.ru/widgets/v3/reformal.js"></script></head>
+
+<body leftmargin="10" topmargin="10" marginheight="10" marginwidth="10">
+<div class="main-admin">
+	<div class="main-admin__content">
+		<script type="text/javascript">
+jqWar(document).ready(function() {
+	if(jqWar('#cst_debt_summ')) {
+		jqWar('#cst_debt_summ').hide();
+	}
+});
+				</script><script type="text/javascript">
+						function setRPP1(pg_count) {
+							setCookie('pg_count',pg_count);
+							window.location.href = '/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;pc1_r='+pg_count
+						}
+						
+					</script><script type="text/javascript">
+						function setRPP1(pg_count) {
+							setCookie('pg_count',pg_count);
+							window.location.href = '/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;pc1_r='+pg_count
+						}
+						
+					</script><h1>Клиенты</h1><div style="text-align:center"><div align="top"><form name="filter" action="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=" method="get" onsubmit="return validate_filter_form(this)">
+<table border="0" width="100%" class="admin_blank_table">
+<tbody><tr>
+	<td colspan="10" bgcolor="#F0F0F0" style="padding: 5px">
+
+<table border="0" cellpadding="0" cellspacing="0" width="100%" class="clear">
+<tbody><tr>
+	<td><strong>фильтр списка клиентов:</strong></td>
+	<td style="text-align:right;">
+<a href="#" onclick="&#10;&#10;&#9;if (filter_table.style.display == 'none') {&#10;&#9;&#9;filter_table.style.display = '';&#10;&#9;&#9;this.innerText = 'скрыть';&#10;&#9;} else {&#10;&#9;&#9;filter_table.style.display = 'none';&#10;&#9;&#9;this.innerText = 'отобразить';&#10;&#9;}&#10;&#10;">скрыть</a>
+
+	</td>
+</tr>
+</tbody></table>
+
+	</td>
+</tr>
+
+</tbody><tbody style="" id="filter_table">
+<tr>
+	<td rowspan="4"> <strong>поиск:</strong> </td>
+
+
+	<td>клиент</td>
+	<td><select id="cst_id" name="cst_id" style="width: 148px; display: none;"><option value=""></option><option value="359598">"АГС" ООО</option><option value="322718">"Ваш автомобиль К" ООО</option><option value="361617">"Графит" ООО</option><option value="312536">"ДАРС" АО</option><option value="361367">"Деталь-КАВ" ООО</option><option value="267035">"ИНАВТО" ООО</option><option value="365561">"М-Сити" ООО</option><option value="356902">"МАН Трак Челны" ООО</option><option value="314970">"МАРКА" ООО(филиал г.Казань)</option><option value="363338">"Протерм" ООО(Набережночелнинский)</option><option value="363241">"РОСЬ-АВТО" ООО(TOYOTA ЦЕНТР)</option><option value="365103">"ЭнергоСтандарт+" ООО</option><option value="41845">"Эфферго" ООО</option><option value="363461">"Юрикс-Авто" ООО(Н.Челны)</option><option value="366491">surnameRegClient nameRegClient</option><option value="324820">Абдуллин Айнур</option><option value="30237">Абдуллин В.С. (СтеклоТонСервис)</option><option value="355754">Аветисян Тигран Феликсвич</option><option value="67335">Автограф ООО(Окружное)</option><option value="361685">АВТОмаркет ООО</option><option value="355271">АВТОРАСХОДНИК-УФА (Цветочная)</option><option value="157593">АВТОРЕМСТРОЙ  ООО</option><option value="360986">Аглиллин Тагир</option><option value="363028">АгроДеталь</option><option value="330271">Амирханов Роберт</option><option value="354394">Андрианов Ю.А.</option><option value="349258">Анисахаров А.С.</option><option value="249699">Анисимов Р.В. ИП(Буг.)</option><option value="359207">Афанасьева Ю.А.</option><option value="362564">Ахметшин А.Х.</option><option value="359796">Бабаев А. (ОМЕГА)</option><option value="363444">Багдалов М.Р. ИП</option><option value="362797">Бикбулатова Д.Б. ИП</option><option value="354424">Билалов М.М. ИП</option><option value="360508">Бобонин Павел</option><option value="358903">Буркин А.В. (Автомиг)</option><option value="358088">Вазетдинов С.И.</option><option value="362570">Валеев Ринат</option><option value="264100">Васильев О.А.</option><option value="98760">Винокуров С. (Нефтяников)</option><option value="358488">Вираж-Авто   ООО</option><option value="266403">Габдулбаров В.</option><option value="364844">Гайнутдинов А.Х. ИП</option><option value="358720">Галиев Линар (Автосервис "РОЛИК")</option><option value="359010">Ганиев Р.И.</option><option value="358201">Гарипов Марат</option><option value="189866">Герасимов А.А. (Гараж 513)</option><option value="110768">Гилязева Э.Р.</option><option value="360296">Греков Егор</option><option value="337558">Григорьев Николай</option></select><span class="custom-combobox" style="width: 150px;"><span role="status" aria-live="polite" class="ui-helper-hidden-accessible"></span><input title="" class="custom-combobox-input ui-widget ui-widget-content ui-corner-all custom-style-input cst_id ui-autocomplete-input" autocomplete="off" style="padding-right: 39px;" /><span class="clearInput" style="background-image: url(&quot;/_sysimg/delete.gif&quot;);"></span><a tabindex="-1" class="custom-button oldSelect"></a></span><style>
+			                form[name="filter"] input[type=submit]{
+                                visibility:hidden;
+                            }
+                        </style>
+                    <script>(function($){;
+
+							$(function(){
+								$.comboBox_cst_id = $("#cst_id").combobox({
+										css: {
+											width:148
+										},
+										url: "/ajax/combo/contragents.html",
+										value : ""
+										
+										, setModifications : function(obj) {
+	if(document.getElementById('flt_cst_ctp_id')){
+
+		var selectedItems = jqWar("#flt_cst_ctp_id").val().join();
+
+		obj.type_customer = selectedItems;
+	}
+}
+								});
+							});
+						})(jqWar)
+                            window.onload=function(){
+                               var subm=document.getElementsByName("filter");
+							   if(subm.length&gt;0){
+                                    var inputAll=subm[0].getElementsByTagName("input"),
+                                        i=inputAll.length;
+                                    for(;i--;){
+                                        if(inputAll[i].type==="submit"){
+                                            inputAll[i].style.visibility="visible";
+                                        }
+                                    }
+                                }
+                            }
+						</script></td>
+
+
+	<td>телефон</td>
+	<td><input class="clearAll TextBox" id="flt_phone" type="text" name="flt_phone" value="" style="width: 150px" /></td>
+
+	<td>№ клиента</td>
+	<td><input class="clearAll TextBox" id="flt_cst_id" type="text" name="flt_cst_id" value="" style="width: 150px" /></td>
+
+	<td rowspan="2" align="center">
+		подписка
+		<br />
+		<a href="javascript:void(0)" onclick="subj = document.getElementById('subscr'); subj.selectedIndex=-1">сброс</a>
+	</td>
+
+	<td rowspan="2"><input name="subscr" type="hidden" value="" /><select size="2" id="subscr" name="subscr[]" class="ListBox" multiple="" style="width: 150px"><option value="news">Новости компании</option>
+<option value="notify">Продвижение заказов</option>
+</select></td>
+	<td rowspan="4"><br /><input name="apply" value="Применить" type="submit" class="submitButton" style="visibility: visible;" /><br /><input name="reset" value="Сбросить" type="submit" class="submitButton" onclick="&#10;location.href = '/admin/eshop/clients/list.html';&#10;return false;&#10;&#9;&#9;&#9;" style="visibility: visible;" /></td>
+</tr>
+
+<tr>
+	<td><nobr>e-mail</nobr></td>
+	<td><input class="clearAll TextBox" id="flt_cst_email" type="text" name="flt_cst_email" value="" style="width: 150px" /></td>
+
+	<td>логин</td>
+	<td><input class="clearAll TextBox" id="flt_userlogin" type="text" name="flt_userlogin" value="loginReg" style="width: 150px" /></td>
+
+	<td>диск. карта</td>
+	<td><input class="clearAll TextBox" id="flt_cst_discount_card" type="text" name="flt_cst_discount_card" value="" style="width: 150px" /></td>
+
+
+</tr>
+
+<tr>
+	<td>торг.точка</td>
+	<td><select id="flt_stc_id" name="flt_stc_id" style="width: 150px"><option value="0" selected="">все точки</option>
+<option value="1">ТАТПАРТС головной</option>
+<option value="2">Рарос Г500</option>
+</select></td>
+
+	<td>деятельность</td>
+	<td><select id="flt_csa_id" name="flt_csa_id" style="width: 150px"><option value="0" selected="">все виды</option>
+<option value="7">Автопредприятие</option>
+<option value="3">Автосервис</option>
+<option value="6">Интернет-магазин</option>
+<option value="9">Клубный клиент</option>
+<option value="8">Корпоративный клиент</option>
+<option value="2">Магазин запчастей (стол заказов)</option>
+<option value="5">Оптовая фирма</option>
+<option value="1">Частное лицо</option>
+</select></td>
+
+	<td>категория</td>
+	<td><select id="flt_cst_category_id" name="flt_cst_category_id" style="width: 150px"><option value="%" selected="">- все -</option>
+<option value="1">Начальная</option>
+<option value="6">Опт5</option>
+<option value="8">Опт6</option>
+<option value="9">Опт7</option>
+<option value="10">Опт8</option>
+<option value="7">Опт9</option>
+<option value="11">Розница</option>
+</select></td>
+
+	<td rowspan="2" align="center">
+		менеджер
+		<br />
+		<a href="javascript:void(0)" onclick="jqWar('#stm_user_login').prop('selectedIndex',-1);">сброс</a>
+	</td>
+
+	<td rowspan="2"><input name="stm_user_login" type="hidden" value="" /><select size="4" id="stm_user_login" name="stm_user_login[]" class="ListBox" multiple="" style="width: 150px"><option value="Albina">(Albina) Альбина (отдел возвратов, доб. 213)</option>
+<option value="ALM">(ALM) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Bug">(Bug) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Chst">(Chst) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Ekaterina">(Ekaterina) ТАТПАРТС 45-12-40</option>
+<option value="EL">(EL) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Igor">(Igor) ТАТПАРТС</option>
+<option value="IjsK.">(IjsK.) Горячкин Иван +7 987 281-72-98</option>
+<option value="Katya">(Katya) Екатерина (отд.возвратов, доб. 213)</option>
+<option value="Kzn">(Kzn) Хабиев Альберт +7 927 447-12-88</option>
+<option value="M7">(M7) Добрынина Ксения 89625714941</option>
+<option value="MjG">(MjG) Горячкин Иван +7 987 281-72-98</option>
+<option value="N.Ch">(N.Ch) Чернухин Альберт +7 917-281-78-91</option>
+<option value="NjK">(NjK) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Okt.">(Okt.) Чернухин Альберт +7 917-281-78-91</option>
+<option value="Robert">(Robert) Садыртдинов Роберт рафисович</option>
+<option value="S-Z">(S-Z) Чернухин Альберт +7 917-281-78-91</option>
+<option value="STM">(STM) Муллабаев Эдуард +7 917-762-48-98</option>
+<option value="Svt.">(Svt.) Муллабаев Эдуард +7 917-762-48-98</option>
+<option value="Ufa">(Ufa) Добрынина Ксения 89625714941</option>
+<option value="Буг.">(Буг.) Чернухин Альберт +7 927 242-74-60</option>
+</select></td>
+</tr>
+
+<tr>
+	<td>город</td>
+	<td><input class="clearAll TextBox" id="flt_city" type="text" name="flt_city" value="" style="width: 150px" /></td>
+
+	<td>тип клиента</td>
+	<td><input name="flt_cst_ctp_id" type="hidden" value="" /><select size="3" id="flt_cst_ctp_id" name="flt_cst_ctp_id[]" class="ListBox" multiple="" style="width: 150px"><option value="1" selected="">клиент</option>
+<option value="2" selected="">торговая точка</option>
+<option value="3">поставщик</option>
+</select></td>
+
+	<td>группа</td>
+	<td><select id="flt_cst_cgr_id" name="flt_cst_cgr_id" style="width: 150px"><option value="0" selected="">все группы</option>
+<option value="-1">не задана</option>
+<option value="1">Наценка 1</option>
+<option value="2">Наценка 2</option>
+<option value="3">Наценка 3</option>
+<option value="6">Наценка 4</option>
+</select></td>
+</tr>
+
+</tbody>
+
+</table>
+
+<input class="clearAll TextBox" id="mode" type="hidden" name="mode" value="" />
+<input class="clearAll TextBox" id="asDirectory" type="hidden" name="asDirectory" value="" />
+<input class="clearAll TextBox" id="onupdate" type="hidden" name="onupdate" value="" />
+		
+</form>
+
+<script type="text/javascript">
+				&lt;!--
+					function validate_filter_form(arg) {
+
+
+					if(arg.target=='_self'||arg.target==''||arg.target =='content_frame'){
+						var b = arg.getElementsByTagName('input');
+			            for(var a=0, c=b.length; a &lt; c; a++){
+							b[a].readOnly='readonly';
+							if(b[a].className == 'submitButton'||b[a].type=='submit'){
+								b[a].style.display='none';
+							}
+			            }
+					}
+
+				 return true;
+	}
+
+				//--&gt;
+				</script></div><div align="top"><div><table border="0" cellpadding="5" cellspacing="0" align="center"><tbody><tr><td></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;fn=add&amp;subj=edittable_form1&amp;_prid=1"><img alt="добавить" title="добавить" hspace="5" src="/_sysimg/ar_add.png" align="absMiddle" border="0" />Добавить новую запись</a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;subj=formaction1&amp;_prid=1">Экспорт в Excel</a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;subj=formaction3&amp;_prid=1">Сделать рассылку</a></td></tr></tbody></table></div></div><div align="top"></div><div align="top"><div class="paginator flc"><div class="paginator_caption">Показывать по</div><div class="pagination_buttons flc"><a href="#" onclick="setRPP1('50')" class="paginator_rpp_button paginator_rpp_button_active"><span>50</span></a><a href="#" onclick="setRPP1('100')" class="paginator_rpp_button"><span>100</span></a><a href="#" onclick="setRPP1('200')" class="paginator_rpp_button"><span>200</span></a><a href="#" onclick="setRPP1('500')" class="paginator_rpp_button"><span>500</span></a><a href="#" onclick="setRPP1('1000')" class="paginator_rpp_button"><span>1000</span></a></div></div></div></div><div class="ar_quickButtons"><div class="ar_quickButton"><div>кол-во строк для экспорта:</div></div><div class="ar_quickButton"><input class="DigitalTextBox" id="rowsLimitForExport_customers" type="text" name="rowsLimitForExport_customers" value="1000" style="width: 50px" onkeypress="return digitsCheck(event)" onkeydown="return((event.keyCode==13)?false:true)" /></div><div class="ar_quickButton"><script type="text/javascript">&lt;!--
+					exportBox_customers_sampleValues = {'xlsx':'&lt;a href=\"/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XLSX\" target=\"_blank\" onclick=\"return setExportLink_customers(this);\"&gt;&lt;img src=\"/_sysimg/filetypes/csv16.png\" border=\"0\" alt=\"экспорт в xlsx\" title=\"экспорт в xlsx\"&gt;&lt;/a&gt;',
+'xls':'&lt;a href=\"/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XLS\" target=\"_blank\" onclick=\"return setExportLink_customers(this);\"&gt;&lt;img src=\"/_sysimg/filetypes/csv16.png\" border=\"0\" alt=\"экспорт в xls\" title=\"экспорт в xls\"&gt;&lt;/a&gt;',
+'csv':'&lt;a href=\"/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=CSV\" target=\"_blank\" onclick=\"return setExportLink_customers(this);\"&gt;&lt;img src=\"/_sysimg/filetypes/csv16.png\" border=\"0\" alt=\"экспорт в csv\" title=\"экспорт в csv\"&gt;&lt;/a&gt;',
+'xml':'&lt;a href=\"/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XML\" target=\"_blank\" onclick=\"return setExportLink_customers(this);\"&gt;&lt;img src=\"/_sysimg/filetypes/xml16.png\" border=\"0\" alt=\"экспорт в xml\" title=\"экспорт в xml\"&gt;&lt;/a&gt;'};
+				
+			
+	var exportBox_customers = new ComboBox(
+		'exportBox_customers',
+		exportBox_customers_sampleValues,
+		'xlsx',
+		'36px',
+		'combobox'
+	);	
+			
+			//--&gt;</script><div class="combobox" id="exportBox_customers" style="width: 36px;"><div id="combobox_body" class="combobox_body"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="content"><div style="width: 100%; background: none; border: 0px; padding: 0px;"><a href="/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XLSX" target="_blank" onclick="return setExportLink_customers(this);"><img src="/_sysimg/filetypes/csv16.png" border="0" alt="экспорт в xlsx" title="экспорт в xlsx" /></a></div></td><td class="arrow"><table width="100%"><tbody><tr><td></td></tr></tbody></table></td></tr></tbody></table></div><input name="exportBox_customers" type="hidden" class="combobox" value="xlsx" /><div class="combobox_values" id="combobox_values1" style="width: 36px;"><table border="0" cellpadding="0" cellspacing="0" style="width: 100%;"><tbody><tr><td name="combobox_valueItem" value="xlsx"><a href="/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XLSX" target="_blank" onclick="return setExportLink_customers(this);"><img src="/_sysimg/filetypes/csv16.png" border="0" alt="экспорт в xlsx" title="экспорт в xlsx" /></a></td></tr><tr><td name="combobox_valueItem" value="xls"><a href="/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XLS" target="_blank" onclick="return setExportLink_customers(this);"><img src="/_sysimg/filetypes/csv16.png" border="0" alt="экспорт в xls" title="экспорт в xls" /></a></td></tr><tr><td name="combobox_valueItem" value="csv"><a href="/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=CSV" target="_blank" onclick="return setExportLink_customers(this);"><img src="/_sysimg/filetypes/csv16.png" border="0" alt="экспорт в csv" title="экспорт в csv" /></a></td></tr><tr><td name="combobox_valueItem" value="xml"><a href="/admin/eshop/clients/list.html?fn=exportTable&amp;tname=customers&amp;par=1Z_pp6nt55_xqpHY4NnX4Nfh4sqaq_KspJ_akqrlrpaoqpHY4NnX0_Lm087ckqrlrpWykpGt55_uqpHl6cfr0_GUr9iyoKmUlqDrqqSslsbo4NvrlqDrqqCqrodID0DyRB1ILD8nRCJIKED0RfGaq_KspZiyktXe6MTb4_PR2dLZ2duUr9iyoKmUlqDrqqClrofe3OPR6djd4tvh287mkqrlrp2yktvh287mwtTZlqDrqqGjrofe3OPR19jsz9Pb58jn5d3m08jZ4tOUr9iyoKmUlqDrqqCirofe3OPR59nbz9jWlqDrqqCslpWaq_KspZWyktXe6MTb49DR3cmaq_KspZ_aoJGt55_pqamU2tHsz9Ll6MTb0ePX29Tq6c7b2Iez46mjroedkqrlrpasqpHl6NLX5eLX5sTk39bb4oez46miroeaq_KsrJ_a1tvm08jh5OiUr9iyoKmUlqDrqqCmrofe3OPR19jsz9Lm5MTh1JGt1Z_qqurbrpWz46mjroepkqrbrpaz46mjroeqkqrv55_ppKmU2tHsz9Ll6MTb1_HR3cmaq_KspZ_aoJGt55_sqpHf48ndkqrlrpWykpGt55_poamU1di82eHX19nn4uiUr9iyoKmUlqDrqqesltTm5d/W1dndkqrlrpWykpGt8Q==&amp;mode=&amp;renderType=XML" target="_blank" onclick="return setExportLink_customers(this);"><img src="/_sysimg/filetypes/xml16.png" border="0" alt="экспорт в xml" title="экспорт в xml" /></a></td></tr></tbody></table></div></div></div><div class="ar_quickButton"><a name="link" href="/admin/common_import.html?tname=customers&amp;_prid=1" target="content_frame"><img src="/_sysimg/import.gif" alt="Импорт данных" title="Импорт данных" /></a></div></div><table cellpadding="3" cellspacing="1" class="admin_edit_table" data-id="customers"><tbody><tr><th class="col_deletelink"><!--delete--></th><th class="col_editlink"><!--edit--></th><th class="col_positions"><img src="/_sysimg/preferences.gif" border="0" alt="все заказы" title="все заказы" /></th><th class="col_control"><!--control--></th><th class="col_cst_id">№</th><th class="col_userlogin"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=userlogin&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=userlogin&amp;_prid=1">логин</a></td></tr></tbody></table></th><th class="col_category_name"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=category_name&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=category_name&amp;_prid=1">категория</a></td></tr></tbody></table></th><th class="col_cst_discount_card">диск. карта</th><th class="col_company"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=company&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=company&amp;_prid=1">организация</a></td></tr></tbody></table></th><th class="col_customer_contact"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=customer_contact&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=customer_contact&amp;_prid=1">контактное лицо</a></td></tr></tbody></table></th><th class="col_stc_name"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=stc_name&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=stc_name&amp;_prid=1">склад</a></td></tr></tbody></table></th><th class="col_cst_placement"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_placement&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_placement&amp;_prid=1">место</a></td></tr></tbody></table></th><th class="col_login"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=login&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=login&amp;_prid=1">менеджер</a></td></tr></tbody></table></th><th class="col_cst_balance">на счету</th><th class="col_cty_name"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cty_name&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cty_name&amp;_prid=1">город</a></td></tr></tbody></table></th><th class="col_cty_phone_code">код города</th><th class="col_contact_phone">телефон</th><th class="col_cst_email"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_email&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_email&amp;_prid=1">e-mail</a></td></tr></tbody></table></th><th class="col_cst_icq">icq</th><th class="col_csa_name">деятельность</th><th class="col_cst_created"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_created&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_created&amp;_prid=1">регистрация</a></td></tr></tbody></table></th><th class="col_cst_comment">комментарий</th><th class="col_cst_debt_inv_summ">максимальная сумма кредита по отгрузкам</th><th class="col_cst_deferment_payment">срок отсрочки платежа в днях</th><th class="col_cst_type"><table border="0"><tbody><tr><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_type&amp;_prid=1"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" /></a></td><td><a name="link" href="/admin/eshop/clients/list.html?flt_phone=&amp;flt_cst_id=&amp;subscr=&amp;apply=%D0%9F%D1%80%D0%B8%D0%BC%D0%B5%D0%BD%D0%B8%D1%82%D1%8C&amp;flt_cst_email=&amp;flt_userlogin=loginReg&amp;flt_cst_discount_card=&amp;flt_stc_id=0&amp;flt_csa_id=0&amp;flt_cst_category_id=%25&amp;stm_user_login=&amp;flt_city=&amp;flt_cst_ctp_id=&amp;flt_cst_ctp_id%5B%5D=1&amp;flt_cst_ctp_id%5B%5D=2&amp;flt_cst_cgr_id=0&amp;mode=&amp;asDirectory=&amp;onupdate=&amp;sort_customers_by=cst_type&amp;_prid=1">тип клиента для 1с</a></td></tr></tbody></table></th></tr><tr><td class="col_deletelink"><a name="link" href="/admin/eshop/clients/list.html?subj=deletefromdatabase1&amp;fn=del&amp;cst_id=366491&amp;_prid=1" onclick="return confirm('Вы действительно хотите удалить запись о данном клиенте?');"><img alt="удалить" title="удалить" src="/_sysimg/button_drop.png" border="0" /></a></td><td class="col_editlink"><a name="link" href="/admin/eshop/clients/list.html?subj=EditTable_Form1&amp;fn=edit&amp;&amp;cst_id=366491&amp;_prid=1"><img alt="редактировать" title="редактировать" src="/_sysimg/button_edit.png" border="0" /></a></td><td class="col_positions"><a name="link" href="/admin/eshop/orders/positions.html?cst_id=366491&amp;_prid=1"><img src="/_sysimg/preferences.gif" border="0" alt="все заказы" title="все заказы" /></a></td><td class="col_control"><script type="text/javascript">&lt;!--
+					clientControlBox_111_sampleValues = {'payers':'&lt;a href=\'/admin/eshop/clients/payers.html?cst_id=366491\'&gt;&lt;img src=\'/_sysimg/payers.gif\' alt=\'плательщики\' title=\'плательщики\' border=\'0\'&gt;&lt;/a&gt;',
+'address':'&lt;a href=\'/admin/eshop/clients/addresses.html?cst_id=366491\'&gt;&lt;img src=\'/_sysimg/addresses.gif\' alt=\'адреса\' title=\'адреса\' border=\'0\'&gt;&lt;/a&gt;',
+'cars':'&lt;a href=\'/admin/eshop/clients/cars.html?cst_id=366491\'&gt;&lt;img src=\'/_sysimg/ar2/car.gif\' alt=\'машины\' title=\'машины\' border=\'0\'&gt;&lt;/a&gt;',
+'password':'&lt;a href=\'/admin/eshop/clients/password.html?cst_id=366491\'&gt;&lt;img src=\'/_sysimg/key.gif\' alt=\'задать пароль\' title=\'задать пароль\' border=\'0\'&gt;&lt;/a&gt;',
+'update':'&lt;a href=\"/admin/eshop/clients/list.html?fn=updateOrd&amp;cst_id=366491&amp;subj=formaction2&amp;_prid=1\"&gt;&lt;img src=\"/_sysimg/reload.gif\" alt=\"Пересчет баланса\" title=\"Пересчет баланса\" border=0&gt;&lt;/a&gt;',
+'login':'&lt;form style=\"margin:0;\" action=\"/\" method=\"post\" target=\"_blank\"&gt;&lt;input type=\"image\" src=\"/_sysimg/add2.png\" alt=\"авторизоваться в клиентской части\" title=\"авторизоваться в клиентской части\" border=\"0\"/&gt;&lt;input type=\"hidden\" value=\"202cb962ac59075b964b07152d234b70\" name=\"userpassword\"/&gt;&lt;input type=\"hidden\" value=\"loginReg\" name=\"userlogin\" /&gt;&lt;input type=\"hidden\" name=\"loginform\" value=\"5e2eff8b4dd145c0bf995bec1f7e17aa\" /&gt;&lt;/form&gt;'};
+				
+			
+	var clientControlBox_111 = new ComboBox(
+		'clientControlBox_111',
+		clientControlBox_111_sampleValues,
+		'payers',
+		'',
+		'combobox'
+	);	
+			
+			//--&gt;</script><div class="combobox" id="clientControlBox_111"><div id="combobox_body" class="combobox_body"><table border="0" cellpadding="0" cellspacing="0" width="100%"><tbody><tr><td class="content"><div style="width: 100%; background: none; border: 0px; padding: 0px;"><a href="/admin/eshop/clients/payers.html?cst_id=366491"><img src="/_sysimg/payers.gif" alt="плательщики" title="плательщики" border="0" /></a></div></td><td class="arrow"><table width="100%"><tbody><tr><td></td></tr></tbody></table></td></tr></tbody></table></div><input name="clientControlBox_111" type="hidden" class="combobox" value="payers" /><div class="combobox_values" id="combobox_values2"><table border="0" cellpadding="0" cellspacing="0" style="width: 100%;"><tbody><tr><td name="combobox_valueItem" value="payers"><a href="/admin/eshop/clients/payers.html?cst_id=366491"><img src="/_sysimg/payers.gif" alt="плательщики" title="плательщики" border="0" /></a></td></tr><tr><td name="combobox_valueItem" value="address"><a href="/admin/eshop/clients/addresses.html?cst_id=366491"><img src="/_sysimg/addresses.gif" alt="адреса" title="адреса" border="0" /></a></td></tr><tr><td name="combobox_valueItem" value="cars"><a href="/admin/eshop/clients/cars.html?cst_id=366491"><img src="/_sysimg/ar2/car.gif" alt="машины" title="машины" border="0" /></a></td></tr><tr><td name="combobox_valueItem" value="password"><a href="/admin/eshop/clients/password.html?cst_id=366491"><img src="/_sysimg/key.gif" alt="задать пароль" title="задать пароль" border="0" /></a></td></tr><tr><td name="combobox_valueItem" value="update"><a href="/admin/eshop/clients/list.html?fn=updateOrd&amp;cst_id=366491&amp;subj=formaction2&amp;_prid=1"><img src="/_sysimg/reload.gif" alt="Пересчет баланса" title="Пересчет баланса" border="0" /></a></td></tr><tr><td name="combobox_valueItem" value="login"><form style="margin:0;" action="/" method="post" target="_blank"><input type="image" src="/_sysimg/add2.png" alt="авторизоваться в клиентской части" title="авторизоваться в клиентской части" border="0" /><input type="hidden" value="202cb962ac59075b964b07152d234b70" name="userpassword" /><input type="hidden" value="loginReg" name="userlogin" /><input type="hidden" name="loginform" value="5e2eff8b4dd145c0bf995bec1f7e17aa" /></form></td></tr></tbody></table></div></div></td><td class="col_cst_id">366491</td><td class="col_userlogin"><a name="link" href="/admin/eshop/orders/positions.html?cst_id=366491&amp;_prid=1" target="content_frame">loginReg</a></td><td class="col_category_name">Розница</td><td class="col_cst_discount_card"> </td><td class="col_company"> </td><td class="col_customer_contact">surnameRegClient nameRegClient</td><td class="col_stc_name">ТАТПАРТС головной</td><td class="col_cst_placement"> </td><td class="col_login">Ekaterina</td><td class="col_cst_balance"><div class="float_string"><nobr>0.00 р.</nobr></div></td><td class="col_cty_name">Байконур</td><td class="col_cty_phone_code">336</td><td class="col_contact_phone">+7(111)111-11-11</td><td class="col_cst_email"><a name="link" href="mailto:testRegClient@tradesoft.ru">testRegClient@tradesoft.ru</a></td><td class="col_cst_icq"> </td><td class="col_csa_name"> </td><td class="col_cst_created">28/02/2020 17:12:20</td><td class="col_cst_comment"> </td><td class="col_cst_debt_inv_summ"> </td><td class="col_cst_deferment_payment">0</td><td class="col_cst_type">основной</td></tr></tbody></table><div style="text-align:center"><div><div class="paginator flc"><div class="paginator_caption">Показывать по</div><div class="pagination_buttons flc"><a href="#" onclick="setRPP1('50')" class="paginator_rpp_button paginator_rpp_button_active"><span>50</span></a><a href="#" onclick="setRPP1('100')" class="paginator_rpp_button"><span>100</span></a><a href="#" onclick="setRPP1('200')" class="paginator_rpp_button"><span>200</span></a><a href="#" onclick="setRPP1('500')" class="paginator_rpp_button"><span>500</span></a><a href="#" onclick="setRPP1('1000')" class="paginator_rpp_button"><span>1000</span></a></div></div></div><div></div></div></div>
+		<div class="admin-footer main-admin__footer">
+			<div class="admin-footer__form">
+					<form class="search-form-footer" action="/admin/eshop/utils/search_action.html" name="search_code" id="search_code" method="GET" onsubmit="return validate_search_code_form(this)" target="content_frame">
+		<div class="search-form-footer__container">
+			<div class="search-form-footer__filters">
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							<span class="form_required_field">код детали</span>						</label>
+						<div class="search-form-footer__input">
+							<input class="clearAll TextBox required" id="article" type="text" name="article" value="" onkeyup="if(this.form.g != null){this.form.g.selectedIndex = -1;}" />						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							режим поиска						</label>
+						<div class="search-form-footer__input">
+							<select name="smode" id="smode" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'smode');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="A">с аналогами</option>
+<option value="A0">без аналогов</option>
+<option value="An">отладка аналогов</option>
+<option value="B">по началу строки</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							сортировать						</label>
+						<div class="search-form-footer__input">
+							<select name="sort___search_results_by" id="sort___search_results_by" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'sort___search_results_by');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="final_price">по цене</option>
+<option value="article">по коду</option>
+<option value="final_manager_price_display">по цене поставщика</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							валюта						</label>
+						<div class="search-form-footer__input">
+							<select name="cid" id="cid" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'cid');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="1">рубль (р.)</option>
+<option value="2">доллар ($)</option>
+<option value="3">евро (€)</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							уровень цен: 						</label>
+						<div class="search-form-footer__input">
+							<select name="cst_category_id" id="cst_category_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'cst_category_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="11">Розница</option>
+<option value="1">Начальная</option>
+<option value="6">Опт5</option>
+<option value="8">Опт6</option>
+<option value="9">Опт7</option>
+<option value="10">Опт8</option>
+<option value="7">Опт9</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							группа клиента						</label>
+						<div class="search-form-footer__input">
+							<select name="search_cst_cgr_id" id="search_cst_cgr_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'search_cst_cgr_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="" selected="">любая</option>
+<option value="1">Наценка 1</option>
+<option value="2">Наценка 2</option>
+<option value="3">Наценка 3</option>
+<option value="6">Наценка 4</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							торговая точка: 						</label>
+						<div class="search-form-footer__input">
+							<select name="stc_id" id="stc_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'stc_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="1">ТАТПАРТС головной</option>
+<option value="2">Рарос Г500</option>
+</select>						</div>
+					</div>
+							</div>
+			<div class="search-form-footer__action">
+									<input name="search" value="искать" type="submit" class="submitButton" />							</div>
+		</div>
+		<input class="clearAll TextBox" id="login" type="hidden" name="login" value="test" /><input class="clearAll TextBox" id="_prid" type="hidden" name="_prid" value="" /><input class="clearAll TextBox" id="subj" type="hidden" name="subj" value="" /><input class="clearAll TextBox" id="search_init" type="hidden" name="search_init" value="1" /><input class="clearAll TextBox" id="use_admin_order" type="hidden" name="use_admin_order" value="1" />	</form>
+	
+				
+				<script type="text/javascript">
+					
+						jqWar(document).ready(function() {
+							if(jqWar('[id*=hc_code]').length){
+								jqWar('[id*=hc_code]').hide();
+							}
+							jqWar('input, select').on('focus', function() {
+								if (jqWar('img.HumanCheck').length) {
+									jqWar('[id*=hc_code]').show();
+									jqWar('img.HumanCheck').each(function(i, el) {
+										if (jqWar(el).attr('src') == '') {
+											jqWar(el).attr('src', '/_phplib/check/img.php');
+											setTimeout(function() {
+												makeRefreshCaptchaLink('/_phplib/check/img.php');
+											}, 500);
+										}
+									});								
+								}
+							});						
+						});
+								
+				
+					var iErrors = new Hash();
+					var search_code_Validator;
+					
+					window.addEvent('domready', function(){
+						
+						MooTools.lang.setLanguage('ru-RU-unicode');
+
+						search_code_Validator = new FormValidator($('search_code'), {
+							stopOnFailure:true,
+							ignoreHidden: true,
+							ignoreDisabled: true,
+							onElementPass: function(el) {
+								setValidate(el, true, '');
+								if ((el.name.indexOf('[]') &lt; 0) || (iErrors[el.name] == '')) {
+									iErrors[el.name] = '';
+								}
+							},
+							onElementFail: function(el, validator) {
+								setValidate(el, false, search_code_Validator.getValidator(validator[0]).getError(el));
+								iErrors[el.name] = search_code_Validator.getValidator(validator[0]).getError(el);
+							}
+						});
+						
+					})
+				
+					function validate_search_code_form(arg) {
+				
+			iErrors = new Hash();
+			search_code_Validator.validate();
+							if (iErrors['article']) {
+								alert('Ошибка в поле "код детали": ' + iErrors['article']);
+								try {arg['article'].focus();} catch(e) {}
+								return false;
+							}
+						
+			var smode = document.forms.search_code.getElementById('smode').value;
+			var smodeArray = ['B', 'C', 'E'];
+			if(smodeArray.indexOf(smode)!=-1) {
+				if(document.forms.search_code.getElementById('article').value.length&lt;3) {
+					document.getElementById('article').focus();
+					alert('Минимальное количество символов для поиска в данном режиме – 3! Пожалуйста скорректируйте искомые данные и повторите запрос.');
+					return false;
+				}
+			}
+
+					if(arg.target=='_self'||arg.target==''||arg.target =='content_frame'){
+						var b = arg.getElementsByTagName('input');
+			            for(var a=0, c=b.length; a &lt; c; a++){
+							b[a].readOnly='readonly';
+							if(b[a].className == 'submitButton'||b[a].type=='submit'){
+								b[a].style.display='none';
+							}
+			            }
+					}
+				 return true;
+	}
+</script>				</div>
+			<div class="admin-footer__infopanel">
+				
+	<a href="#" target="_blank" title="Подать заявку в службу поддержки" alt="Подать заявку в службу поддержки" onclick="open_tbox_frame('/admin/support/'); return false;"><img src="/_sysimg/ar_edit.png" hspace="5" border="0" align="absmiddle" /></a>
+
+	<a title="Идеи улучшения системы «Веб-АвтоРесурс»" alt="Идеи улучшения системы «Веб-АвтоРесурс»" href="//web-ar.reformal.ru" onclick="Reformal.widgetOpen();return false;" onmouseover="Reformal.widgetPreload();"><img src="//media.reformal.ru/reformal.png" hspace="5" border="0" align="absmiddle" /></a>
+
+	<script type="text/javascript">
+		var reformalOptions = {
+			project_id: 191848,
+			show_tab: false,
+			project_host: "web-ar.reformal.ru"
+		};
+
+		(function() {
+			var script = document.createElement('script');
+			script.type = 'text/javascript'; script.async = true;
+			script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+			document.getElementsByTagName('head')[0].appendChild(script);
+		})();
+	</script>
+
+	<noscript>&lt;a href="//reformal.ru"&gt;&lt;img src="//media.reformal.ru/reformal.png" /&gt;&lt;/a&gt;&lt;a href="//web-ar.reformal.ru"&gt;Отзывы&lt;/a&gt;</noscript>
+
+	<a href="#" target="_blank" title="Информация о системе" alt="Информация о системе" onclick="open_tbox_html('system_info_div', 300, 300); return false;"><img src="/_sysimg/about.gif" hspace="5" border="0" align="absmiddle" /></a>
+
+
+<div style="display:none">
+	<div id="system_info_div">
+		<h1>О системе Веб-АвтоРесурс</h1>
+Версия: 5.28
+
+<p>
+Разработчик:<br />
+ООО «Компания «ТрэйдСофт»<br />
+г. Киров, ул. Профсоюзная, д.1<br />
+Адрес для корреспонденции: 610000, г. Киров, а/я 9<br />
+Тел.: 8-800-555-24-95, +7 (8332) 71-42-42<br />
+Mail: <a href="mailto:sdesk@tradesoft.ru">sdesk@tradesoft.ru</a><br />
+Сайт: <a href="https://www.tradesoft.ru" target="_blank">www.tradesoft.ru</a>
+</p>
+	</div>
+	<div id="page_help_div">
+			</div>
+</div>
+			</div>
+
+		</div>
+
+	
+	
+	</div>
+<ul class="ui-autocomplete ui-front ui-menu ui-widget ui-widget-content ui-corner-all" id="ui-id-1" tabindex="0" style="display: none;"></ul></body></html>
