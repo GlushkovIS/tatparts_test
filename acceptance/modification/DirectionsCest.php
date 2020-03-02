@@ -2,7 +2,9 @@
 
 use Pages\Client\BasketClientPage;
 use Pages\Client\MakeOrderClientPage;
+use Pages\Client\MyOrdersPage;
 use Pages\Client\SearchClientPage;
+use Pages\AdminPage;
 
 /**
  * 445822 Данный класс проверяет проверяет работу доработки “Замена направления в заказах”
@@ -28,12 +30,23 @@ class DirectionsCest
      * @var BasketClientPage
      */
     protected $basketPage;
+    /**
+     * @var MyOrdersPage
+     */
+    protected $myOrdersPage;
+    /**
+     * @var AdminPage
+     */
+    protected $adminPage;
+
 
     public function _before(\AcceptanceTester $I)
     {
-        $this->searchPage = new \Pages\Client\SearchClientPage($I);
-        $this->makeOrderPage = new \Pages\Client\MakeOrderClientPage($I);
-        $this->basketPage = new \Pages\Client\BasketClientPage($I);
+        $this->searchPage = new SearchClientPage($I);
+        $this->makeOrderPage = new MakeOrderClientPage($I);
+        $this->basketPage = new BasketClientPage($I);
+        $this->myOrdersPage = new MyOrdersPage($I);
+        $this->adminPage = new AdminPage($I);
 
         /**
          * Заполнение форм для поиска
@@ -42,13 +55,16 @@ class DirectionsCest
             'article' => 'KL9',
             'brand' => 'MAHLE',
             'name' => 'ФИЛЬТР ТОПЛИВНЫЙ',
-            'term' => '3',
-            'remains ' => '1',
-            'price' => '649.00',
-            'providerPrice' => '612.00',
-            'provider' => 'Автоконтинент Москва',
+            'term' => '4',
+            'remains ' => '4',
+            'price' => '844.00',
+            'providerPrice' => '795.59',
+            'provider' => 'Сокол-Авто ООО(#МСК#)',
             'crossArticle' => 'KL9',
-            'crossBrand' => 'MAHLE'
+            'crossBrand' => 'MAHLE',
+            'direction' => 'Тестовое направление',
+            'realDirection' => 'TATPARTS 565',
+            'nameAndBrand' => 'MAHLE, ФИЛЬТР ТОПЛИВНЫЙ'
         ];
     }
 
@@ -66,7 +82,7 @@ cre_destination_replace,
 cre_hide, cre_last_time, 
 cre_destination_replace_mode)
 VALUES
-(NULL, \'TEST\', 1, NOW(), 1);
+(NULL, \'Тестовое направление\', 1, NOW(), 1);
 ';
         $I->executeSql($query);
         $MakeOrderClientPage->resetLoginClient();
@@ -124,4 +140,39 @@ VALUES
         $MakeOrderClientPage->saveOrder();
         $MakeOrderClientPage->checkOrderSuccess();
     }
+
+    /**
+     * Проверка, что направления в админке в колонках "Направление" и "Направление которое ввидит клиент" не совпадают
+     */
+    public function directionsNotMatchAdmin(\AcceptanceTester $I)
+    {
+        $AdminPage = $this->adminPage;
+        $AdminPage->authAdmin();
+
+    }
+
+    /**
+     * Проверка, что направление позиции ЗК в КЧ отображается "Тестовое направление"
+     */
+    public function directionIsEqualToExpected(\AcceptanceTester $I)
+    {
+        $MakeOrderClientPage = $this->makeOrderPage;
+        $MakeOrderClientPage->resetLoginClient();
+        $MakeOrderClientPage->authClient();
+        $MyOrdersPage = $this->myOrdersPage;
+
+        $I->wantTo('Проверить направление в клиенской части');
+        $MyOrdersPage->goPage();
+        $MyOrdersPage->checkDisplayDirection($this->searchRow);
+    }
+
+    /**
+     * Проверка, что после изменения направления в админке, направление в админке
+     * в колонке "Направление которое ввидит клиент"  и в КЧ не изменилось
+     */
+    public function directionsHaveNotChanged(\AcceptanceTester $I)
+    {
+
+    }
+
 }
