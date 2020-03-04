@@ -1,0 +1,868 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"><html xmlns="http://www.w3.org/1999/xhtml" slick-uniqueid="3"><head>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" /><meta name="title" content="Список позиций" />
+<title>Список позиций</title>
+<link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon.png" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-76x76.png" sizes="76x76" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-120x120.png" sizes="120x120" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-144x144.png" sizes="144x144" />
+<link rel="apple-touch-icon" href="/_sysimg/ios/apple-touch-icon-152x152.png" sizes="152x152" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="/_css/admin.css?4449" />
+<link rel="stylesheet" type="text/css" href="/_syscss/admin-3.0.css?4449" />
+<link rel="stylesheet" type="text/css" href="/_syscss/select.css?4449" />
+<link rel="stylesheet" type="text/css" href="/_syslib/tinybox/tinybox.css?4449" />
+<script type="text/javascript" src="/_syslib/jquery-1.11.min.js?4449"></script>
+<script type="text/javascript" src="/_syslib/mootools.js?4449"></script>
+<script type="text/javascript" src="/_syslib/mootools-more.js?4449"></script>
+<script type="text/javascript" src="/_syslib/lib.common.js?4449"></script>
+<script type="text/javascript" src="/_syslib/calendar/lib.calendar.js?4449"></script>
+<script type="text/javascript" src="/_syslib/calendar/calendar_settings.js?4449"></script>
+<script type="text/javascript" src="/_syslib/directory/lib.directory.js?4449"></script>
+<script type="text/javascript" src="/_syslib/advanced.select.js?4449"></script>
+<script type="text/javascript" src="/_syslib/form/paginator-resizer.js?4449"></script>
+<script type="text/javascript" src="/_syslib/tinybox/tinybox.js?4449"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/core/jquery.ui.core.min.js?4449"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/menu/jquery.ui.menu.min.js?4449"></script>
+<script type="text/javascript" src="/_syslib/jquery-ui-1.10.4/autocoplete/jquery.ui.autocomplete.min.js?4449"></script>
+
+			<script type="text/javascript">
+				jqWar(document).ready(function() {
+		
+				setSearchAutocompleteField('form[name=search_code]:not(.search-form-footer) input[name=article]', 1);
+			
+				setSearchAutocompleteField('#search_article', 1);
+			
+				});		
+			</script>
+		<script>setCookie('l_test~~contragent_cst_id', '1');</script>
+<script>setCookie('l_test~~period', '6');</script>
+<script type="text/javascript" async="" src="http://media.reformal.ru/widgets/v3/reformal.js"></script></head>
+
+<body leftmargin="0" topmargin="0" marginheight="0" marginwidth="0">
+<div class="main-admin">
+	<div class="main-admin__content">
+		<script type="text/javascript">
+if (parent.frames.position_control.document.forms.length &gt; 1) {
+
+	parent.frames.position_control.document.forms.filter.action = '/admin/eshop/orders/positions_list.html';
+	parent.frames.position_control.document.forms.action.action = '/admin/eshop/orders/positions_list.html';
+	
+
+	if (parent.frames.position_control.dhtmlcst_id) {
+		MyComboObject = parent.frames.position_control.dhtmlcst_id;
+		MyComboObject.loadXML('/ajax/combo/customers.html?value=');
+		MyComboObject.setComboValue('');
+	}
+
+	
+
+}
+
+function callSearch(article, category) {
+
+	parent.location.href = '/admin/eshop/utils/search_action.html?search_init=1&amp;article=' + article + '&amp;cst_category_id=' + category + '&amp;sort___search_results_by=final_price&amp;login=test';
+
+}
+
+
+(function ($, w) {
+	$(function () {
+		$(".sync_action").click(function () {
+			divideSyncModal(this);
+		});
+	});
+})(jqWar, window);
+
+function showAJAXPreLoader(self) {
+	(function($){
+		var boxid = self.boxid.split("_");
+		var box_name = self.boxid;
+		var pst_id = boxid[1];
+		var box = $("#" + box_name).find(".tcontent");
+
+		var target = "/admin/webservice/?page=web_sync_divide&amp;pst_id=" + pst_id;
+		$.ajax({
+	 		url:target,
+			data:{ pst_id: pst_id },
+			type:"POST",
+			beforeSend: function(xhr){
+				box.html("&lt;div id='main_inner_div' style='width: 100%; text-align: center; margin-top:40px;'&gt;&lt;img src='/_sysimg/webservice/ajax-loader-big.gif' alt='' title='Идет сбор информации по базе данных'/&gt;&lt;br/&gt;&lt;br/&gt;Идет сбор информации по базе данных&lt;/div&gt;");
+			},
+			success:function(result){
+				if( result ) {
+					box.html(result);
+				}
+			}
+		});
+
+	})(jqWar);
+}
+
+function closeDivideSyncModalJS(self, w) {
+	w.location.reload(true);
+}
+
+function divideSyncModal(self) {
+
+	(function($){
+		var pst_id = $(self).attr("data-pst_id");
+		TINY.box.show({
+			html: "",
+			openjs: function(){showAJAXPreLoader(this)},
+			closejs: function(){closeDivideSyncModalJS(this, window)},
+			boxid: "divideSyncModal_"+pst_id,
+			width: 500,
+			height: 190,
+			close: true,
+			opacity: 50
+		});
+
+		return false;
+	})(jqWar);
+}
+</script>	<link rel="stylesheet" type="text/css" href="/_syscss/sysimages.css" />
+
+	<style>
+		
+		.stt_1 {
+			background: url(/images/order_states/01.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_2 {
+			background: url(/images/order_states/02.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_3 {
+			background: url(/images/order_states/03.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_4 {
+			background: url(/images/order_states/04.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_7 {
+			background: url(/images/order_states/07.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_8 {
+			background: url(/images/order_states/08.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_9 {
+			background: url(/images/order_states/09.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_10 {
+			background: url(/images/order_states/10.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_11 {
+			background: url(/images/order_states/11.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_13 {
+			background: url(/images/order_states/13.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_14 {
+			background: url(/images/order_states/14.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_15 {
+			background: url(/images/order_states/15.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_16 {
+			background: url(/images/order_states/16.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_17 {
+			background: url(/images/order_states/17.png);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_18 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_19 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_20 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_21 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_22 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_23 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_24 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_25 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_26 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_27 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_28 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_29 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_30 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_31 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_32 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_33 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_34 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_35 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_36 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_37 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_38 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_39 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_40 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_41 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_42 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_43 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_44 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_45 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_46 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_47 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_48 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_49 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		
+		.stt_50 {
+			background: url(/_sysimg/1x1.gif);
+			background-repeat: no-repeat;
+			width: 20px;
+			height: 20px;
+			margin: 2px;
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+			</style>
+<script type="text/javascript">
+						function setRPP1(pg_count) {
+							setCookie('pg_count',pg_count);
+							window.location.href = '/admin/eshop/orders/positions_list.html?pc1_r='+pg_count
+						}
+						
+					</script><div style="text-align:center"><div class="paginator flc"><div class="paginator_caption">Показывать по</div><div class="pagination_buttons flc"><a href="#" onclick="setRPP1('50')" class="paginator_rpp_button paginator_rpp_button_active"><span>50</span></a><a href="#" onclick="setRPP1('100')" class="paginator_rpp_button"><span>100</span></a><a href="#" onclick="setRPP1('200')" class="paginator_rpp_button"><span>200</span></a><a href="#" onclick="setRPP1('500')" class="paginator_rpp_button"><span>500</span></a><a href="#" onclick="setRPP1('1000')" class="paginator_rpp_button"><span>1000</span></a></div></div></div><form action="/admin/eshop/orders/positions_list.html?subj=formaction2&amp;_prid=1" method="POST"><div style="text-align:center"><table border="0" cellpadding="5" cellspacing="0" align="center"><tbody><tr><td></td><td><input name="update_data" value="Сохранить изменения" type="submit" class="submitButton" /></td><td><a target="content_frame" href="/admin/eshop/import_positions.html?">Импорт позиций заказов</a></td></tr></tbody></table></div><table id="table-positions" class="admin_blank_table" style="font-size: 90%" cellpadding="1" cellspacing="1">
+<tbody><tr><th class="col_edit"><!--edit--></th><th class="col_delete"><!--delete--></th><th class="col_history"><!--history--></th><th class="col_control">-</th><th class="col_pst_state_id"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_state_id"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" /></span></a><a href="#" onclick="state_legend=window.open('/shop/state_legend.html','','width=500,height=300,status=no'); state_legend.focus()"><img src="/_sysimg/ar2/legend.gif" border="0" alt="легенда состояний" title="легенда состояний" width="16" height="16" /></a></th><th class="col_describe_sort"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=describe_sort"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" /><img src="/_sysimg/ar2/recommend.gif" border="0" alt="рекомендации" title="рекомендации" width="16" height="16" /></span></a></th><th class="col_pst_ord_id"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_ord_id"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />заказ</span></a></th><th class="col_customer"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=customer"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />клиент</span></a></th><th class="col_pst_article"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_article"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />артикул</span></a></th><th class="col_pst_name">наименование</th><th class="col_pst_brand"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_brand"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />произв.</span></a></th><th class="col_pst_price">цена</th><th class="col_pst_amount">кол-во</th><th class="col_summ">сумма</th><th class="col_payed">опл.</th><th class="col_debt">долг</th><th class="col_cst_balance">баланс</th><th class="col_short_name"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=short_name"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />постав.</span></a></th><th class="col_pst_destination"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_destination"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />направление</span></a></th><th class="col_summ_prov">сумма закупа</th><th class="col_income_prov">прибыль</th><th class="col_pst_term"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_term"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />срок</span> (дн.)</a></th><th class="col_pst_comment"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_comment"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />коммент.</span></a></th><th class="col_pst_manager_comment">коммент. менеджера</th><th class="col_pst_ref_id">ref.</th><th class="col_pst_id"><!--pst_id--></th><th class="col_pst_provider_article">артикул поставщика</th><th class="col_pst_article_display">артикул (полный)</th><th class="col_pst_arrival_date"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=pst_arrival_date"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />ожидается</span></a></th><th class="col_pst_prov_price">закуп</th><th class="col_pst_direction">направление которое видит клиент</th><th class="col_dcm_datetime"><a href="/admin/eshop/orders/positions_list.html?sort_documents_by=dcm_datetime"><span style="white-space:nowrap;"><img src="/_sysimg/unsort.gif" border="0" align="absmiddle" hspace="2" />дата/время</span></a></th><th class="col_manager_login">менеджер</th></tr><tr><th class="total total--sum" colspan="13"><span class="total__item--sum">Итого:</span></th><th class="total col_summ total_column--summ"><div class="float_string"><nobr>844.00</nobr></div></th><th class="total col_payed total_column--payed"><div class="float_string"><nobr>0.00</nobr></div></th><th class="total col_debt total_column--debt"><div class="float_string"><nobr>844.00</nobr></div></th><th class="total col_cst_balance total_column--cst_balance"></th><th class="total col_short_name total_column--short_name"></th><th class="total col_pst_destination total_column--pst_destination"></th><th class="total col_summ_prov total_column--summ_prov"><div class="float_string"><nobr>795.59</nobr></div></th><th class="total col_income_prov total_column--income_prov"><div class="float_string"><nobr>0.00</nobr></div></th><th class="total col_pst_term total_column--pst_term"></th><th class="total col_pst_comment total_column--pst_comment"></th><th class="total col_pst_manager_comment total_column--pst_manager_comment"></th><th class="total col_pst_ref_id total_column--pst_ref_id"></th><th class="total col_pst_id total_column--pst_id"></th><th class="total col_pst_provider_article total_column--pst_provider_article"></th><th class="total col_pst_article_display total_column--pst_article_display"></th><th class="total col_pst_arrival_date total_column--pst_arrival_date"></th><th class="total col_pst_prov_price total_column--pst_prov_price"></th><th class="total col_pst_direction total_column--pst_direction"></th><th class="total col_dcm_datetime total_column--dcm_datetime"></th><th class="total col_manager_login total_column--manager_login"></th></tr><tr style="" id="0">
+<td class="col_edit "><a href="/admin/eshop/orders/positions_list.html?subj=edittable_form1&amp;fn=edit&amp;pst_id=1928338&amp;_prid=1"><img alt="редактировать" title="редактировать" src="/_sysimg/button_edit.png" border="0" /></a></td><td class="col_delete "><a onclick="return confirm('Вы действительно хотите удалить данную запись?')" href="/admin/eshop/orders/positions_list.html?subj=deletefromdatabase1&amp;fn=del&amp;pst_id=1928338&amp;_prid=1"><img alt="удалить" title="удалить" src="/_sysimg/button_drop.png" border="0" /></a></td><td class="col_history "><a href="/admin/log.html?log_key_value=1928338&amp;lgt_group=positions"><img src="/_sysimg/history.png" border="0" alt="протокол действий" title="протокол действий" /></a></td><td class="col_control "><input class="CheckBox" id="checkPos[1]" type="checkbox" value="1928338" name="checkPos[1]" /></td><td class="col_pst_state_id "><nobr><span class="stt_1" hspace="2"></span>заказ принят</nobr></td><td class="col_describe_sort "><nobr><a href="/admin/document_print.html?dcm_id=6872dfe9d96dd4705a63cbeac39588c1&amp;pst_id=1928338" target="_blank"><span class="label_img" title="этикетка"></span></a><span class="debt_img" title="требуется оплата"></span><span class="home_img" title="на складе"></span></nobr></td><td class="col_pst_ord_id "><a href="/admin/eshop/orders/positions.html?pst_ord_id=1116122&amp;cst_id=366489&amp;_prid=1" target="content_frame"><nobr>K1-436043/366489</nobr></a></td><td class="col_customer "><a href="/admin/eshop/orders/positions.html?cst_id=366489&amp;_prid=1" target="content_frame">Тестовый Клиент Отчество</a></td><td class="col_pst_article "><a href="#" onclick="callSearch('KL9', 1)">
+<nobr>
+	KL9
+</nobr>
+</a></td><td class="col_pst_name "><input class="TextBox" type="text" name="pst_name[1]" value="ФИЛЬТР ТОПЛИВНЫЙ" style="width: 150px" /></td><td class="col_pst_brand "><input class="TextBox" type="text" name="pst_brand[1]" value="MAHLE" style="width: 75px" /></td><td class="col_pst_price "><input onkeypress="if(event.keyCode==13) floatRoutine(this, 'off')" onblur="floatRoutine(this, 'off')" class="TextBox" type="text" name="pst_price[1]" value="844.00" style="width: 50px" /></td><td class="col_pst_amount "><input onkeypress="if(event.keyCode==13) floatRoutine(this, 'off')" onblur="floatRoutine(this, 'off')" class="TextBox" type="text" name="pst_amount[1]" value="1" style="width: 30px" /></td><td class="col_summ "><div class="float_string"><nobr>844.00</nobr></div></td><td class="col_payed ">0.00</td><td class="col_debt "><div class="float_string"><nobr>844.00</nobr></div></td><td class="col_cst_balance "><div class="float_string"><nobr>0.00</nobr></div></td><td class="col_short_name "><a href="/admin/eshop/orders/positions.html?dcm_contractor_cst_id=362452" target="content_frame">Сокол-Авто ООО(#МСК#)</a></td><td class="col_pst_destination "><input type="text" class="TextBox" name="pst_destination[1]" value="TATPARTS 565" style="width: 80px" /></td><td class="col_summ_prov "><div class="float_string"><nobr>795.59</nobr></div></td><td class="col_income_prov ">0.00</td><td class="col_pst_term "><input onkeypress="if(event.keyCode==13) floatRoutine(this, 'off')" onblur="floatRoutine(this, 'off')" class="TextBox" type="text" name="pst_term[1]" value="4" style="width: 30px" /></td><td class="col_pst_comment "><input class="TextBox" type="text" name="pst_comment[1]" value="" style="width: 75px" title="" /></td><td class="col_pst_manager_comment "><input class="TextBox" type="text" name="pst_manager_comment[1]" value="" style="width: 75px" title="" /></td><td class="col_pst_ref_id "><input class="TextBox" type="text" value="1928338" style="width: 50px" name="pst_ref_id[1]" /></td><td class="col_pst_id "><input type="hidden" value="1928338" name="pst_id[1]" /></td><td class="col_pst_provider_article "></td><td class="col_pst_article_display ">KL9</td><td class="col_pst_arrival_date "><input type="text" class="TextBox" name="pst_arrival_date[1]" value="16/03/2020" style="width: 80px" /></td><td class="col_pst_prov_price "></td><td class="col_pst_direction ">Тестовое направление</td><td class="col_dcm_datetime ">2020-03-04 23:07:30</td><td class="col_manager_login ">Katya</td>	</tr><tr><th class="total total--sum" colspan="13"><span class="total__item--sum">Итого:</span></th><th class="total col_summ total_column--summ"><div class="float_string"><nobr>844.00</nobr></div></th><th class="total col_payed total_column--payed"><div class="float_string"><nobr>0.00</nobr></div></th><th class="total col_debt total_column--debt"><div class="float_string"><nobr>844.00</nobr></div></th><th class="total col_cst_balance total_column--cst_balance"></th><th class="total col_short_name total_column--short_name"></th><th class="total col_pst_destination total_column--pst_destination"></th><th class="total col_summ_prov total_column--summ_prov"><div class="float_string"><nobr>795.59</nobr></div></th><th class="total col_income_prov total_column--income_prov"><div class="float_string"><nobr>0.00</nobr></div></th><th class="total col_pst_term total_column--pst_term"></th><th class="total col_pst_comment total_column--pst_comment"></th><th class="total col_pst_manager_comment total_column--pst_manager_comment"></th><th class="total col_pst_ref_id total_column--pst_ref_id"></th><th class="total col_pst_id total_column--pst_id"></th><th class="total col_pst_provider_article total_column--pst_provider_article"></th><th class="total col_pst_article_display total_column--pst_article_display"></th><th class="total col_pst_arrival_date total_column--pst_arrival_date"></th><th class="total col_pst_prov_price total_column--pst_prov_price"></th><th class="total col_pst_direction total_column--pst_direction"></th><th class="total col_dcm_datetime total_column--dcm_datetime"></th><th class="total col_manager_login total_column--manager_login"></th></tr></tbody></table></form><div style="text-align:center"><div class="paginator flc"><div class="paginator_caption">Показывать по</div><div class="pagination_buttons flc"><a href="#" onclick="setRPP1('50')" class="paginator_rpp_button paginator_rpp_button_active"><span>50</span></a><a href="#" onclick="setRPP1('100')" class="paginator_rpp_button"><span>100</span></a><a href="#" onclick="setRPP1('200')" class="paginator_rpp_button"><span>200</span></a><a href="#" onclick="setRPP1('500')" class="paginator_rpp_button"><span>500</span></a><a href="#" onclick="setRPP1('1000')" class="paginator_rpp_button"><span>1000</span></a></div></div></div></div>
+		<div class="admin-footer main-admin__footer">
+			<div class="admin-footer__form">
+					<form class="search-form-footer" action="/admin/eshop/utils/search_action.html" name="search_code" id="search_code" method="GET" onsubmit="return validate_search_code_form(this)" target="content_frame">
+		<div class="search-form-footer__container">
+			<div class="search-form-footer__filters">
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							<span class="form_required_field">код детали</span>						</label>
+						<div class="search-form-footer__input">
+							<input class="clearAll TextBox required" id="article" type="text" name="article" value="" onkeyup="if(this.form.g != null){this.form.g.selectedIndex = -1;}" />						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							режим поиска						</label>
+						<div class="search-form-footer__input">
+							<select name="smode" id="smode" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'smode');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="A">с аналогами</option>
+<option value="A0">без аналогов</option>
+<option value="An">отладка аналогов</option>
+<option value="B">по началу строки</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							сортировать						</label>
+						<div class="search-form-footer__input">
+							<select name="sort___search_results_by" id="sort___search_results_by" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'sort___search_results_by');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="final_price">по цене</option>
+<option value="article">по коду</option>
+<option value="final_manager_price_display">по цене поставщика</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							валюта						</label>
+						<div class="search-form-footer__input">
+							<select name="cid" id="cid" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'cid');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="1">рубль (р.)</option>
+<option value="2">доллар ($)</option>
+<option value="3">евро (€)</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							уровень цен: 						</label>
+						<div class="search-form-footer__input">
+							<select name="cst_category_id" id="cst_category_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'cst_category_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="11">Розница</option>
+<option value="1">Начальная</option>
+<option value="6">Опт5</option>
+<option value="8">Опт6</option>
+<option value="9">Опт7</option>
+<option value="10">Опт8</option>
+<option value="7">Опт9</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							группа клиента						</label>
+						<div class="search-form-footer__input">
+							<select name="search_cst_cgr_id" id="search_cst_cgr_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'search_cst_cgr_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="" selected="">любая</option>
+<option value="1">Наценка 1</option>
+<option value="2">Наценка 2</option>
+<option value="3">Наценка 3</option>
+<option value="6">Наценка 4</option>
+</select>						</div>
+					</div>
+									<div class="search-form-footer__item">
+						<label class="search-form-footer__label">
+							торговая точка: 						</label>
+						<div class="search-form-footer__input">
+							<select name="stc_id" id="stc_id" onchange="&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;try {&#10;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;&#9;setValidateField(search_code_Validator, 'stc_id');&#10;&#9;&#9;&#9;&#9;&#9;&#9;} catch(e) {}&#10;&#9;&#9;&#9;"><option value="1">ТАТПАРТС головной</option>
+<option value="2">Рарос Г500</option>
+</select>						</div>
+					</div>
+							</div>
+			<div class="search-form-footer__action">
+									<input name="search" value="искать" type="submit" class="submitButton" />							</div>
+		</div>
+		<input class="clearAll TextBox" id="login" type="hidden" name="login" value="test" /><input class="clearAll TextBox" id="_prid" type="hidden" name="_prid" value="" /><input class="clearAll TextBox" id="subj" type="hidden" name="subj" value="" /><input class="clearAll TextBox" id="search_init" type="hidden" name="search_init" value="1" /><input class="clearAll TextBox" id="use_admin_order" type="hidden" name="use_admin_order" value="1" />	</form>
+	
+				
+				<script type="text/javascript">
+					
+						jqWar(document).ready(function() {
+							if(jqWar('[id*=hc_code]').length){
+								jqWar('[id*=hc_code]').hide();
+							}
+							jqWar('input, select').on('focus', function() {
+								if (jqWar('img.HumanCheck').length) {
+									jqWar('[id*=hc_code]').show();
+									jqWar('img.HumanCheck').each(function(i, el) {
+										if (jqWar(el).attr('src') == '') {
+											jqWar(el).attr('src', '/_phplib/check/img.php');
+											setTimeout(function() {
+												makeRefreshCaptchaLink('/_phplib/check/img.php');
+											}, 500);
+										}
+									});								
+								}
+							});						
+						});
+								
+				
+					var iErrors = new Hash();
+					var search_code_Validator;
+					
+					window.addEvent('domready', function(){
+						
+						MooTools.lang.setLanguage('ru-RU-unicode');
+
+						search_code_Validator = new FormValidator($('search_code'), {
+							stopOnFailure:true,
+							ignoreHidden: true,
+							ignoreDisabled: true,
+							onElementPass: function(el) {
+								setValidate(el, true, '');
+								if ((el.name.indexOf('[]') &lt; 0) || (iErrors[el.name] == '')) {
+									iErrors[el.name] = '';
+								}
+							},
+							onElementFail: function(el, validator) {
+								setValidate(el, false, search_code_Validator.getValidator(validator[0]).getError(el));
+								iErrors[el.name] = search_code_Validator.getValidator(validator[0]).getError(el);
+							}
+						});
+						
+					})
+				
+					function validate_search_code_form(arg) {
+				
+			iErrors = new Hash();
+			search_code_Validator.validate();
+							if (iErrors['article']) {
+								alert('Ошибка в поле "код детали": ' + iErrors['article']);
+								try {arg['article'].focus();} catch(e) {}
+								return false;
+							}
+						
+			var smode = document.forms.search_code.getElementById('smode').value;
+			var smodeArray = ['B', 'C', 'E'];
+			if(smodeArray.indexOf(smode)!=-1) {
+				if(document.forms.search_code.getElementById('article').value.length&lt;3) {
+					document.getElementById('article').focus();
+					alert('Минимальное количество символов для поиска в данном режиме – 3! Пожалуйста скорректируйте искомые данные и повторите запрос.');
+					return false;
+				}
+			}
+
+					if(arg.target=='_self'||arg.target==''||arg.target =='content_frame'){
+						var b = arg.getElementsByTagName('input');
+			            for(var a=0, c=b.length; a &lt; c; a++){
+							b[a].readOnly='readonly';
+							if(b[a].className == 'submitButton'||b[a].type=='submit'){
+								b[a].style.display='none';
+							}
+			            }
+					}
+				 return true;
+	}
+</script>				</div>
+			<div class="admin-footer__infopanel">
+				
+	<a href="/admin/eshop/orders/positions_list.html?system_print_mode=1" target="_blank" title="Версия для печати" alt="Версия для печати"><img src="/_sysimg/print.gif" hspace="5" border="0" align="absmiddle" /></a>
+	<a href="#" target="_blank" title="Подать заявку в службу поддержки" alt="Подать заявку в службу поддержки" onclick="open_tbox_frame('/admin/support/'); return false;"><img src="/_sysimg/ar_edit.png" hspace="5" border="0" align="absmiddle" /></a>
+
+	<a title="Идеи улучшения системы «Веб-АвтоРесурс»" alt="Идеи улучшения системы «Веб-АвтоРесурс»" href="//web-ar.reformal.ru" onclick="Reformal.widgetOpen();return false;" onmouseover="Reformal.widgetPreload();"><img src="//media.reformal.ru/reformal.png" hspace="5" border="0" align="absmiddle" /></a>
+
+	<script type="text/javascript">
+		var reformalOptions = {
+			project_id: 191848,
+			show_tab: false,
+			project_host: "web-ar.reformal.ru"
+		};
+
+		(function() {
+			var script = document.createElement('script');
+			script.type = 'text/javascript'; script.async = true;
+			script.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'media.reformal.ru/widgets/v3/reformal.js';
+			document.getElementsByTagName('head')[0].appendChild(script);
+		})();
+	</script>
+
+	<noscript>&lt;a href="//reformal.ru"&gt;&lt;img src="//media.reformal.ru/reformal.png" /&gt;&lt;/a&gt;&lt;a href="//web-ar.reformal.ru"&gt;Отзывы&lt;/a&gt;</noscript>
+
+	<a href="#" target="_blank" title="Информация о системе" alt="Информация о системе" onclick="open_tbox_html('system_info_div', 300, 300); return false;"><img src="/_sysimg/about.gif" hspace="5" border="0" align="absmiddle" /></a>
+
+
+<div style="display:none">
+	<div id="system_info_div">
+		<h1>О системе Веб-АвтоРесурс</h1>
+Версия: 5.28
+
+<p>
+Разработчик:<br />
+ООО «Компания «ТрэйдСофт»<br />
+г. Киров, ул. Профсоюзная, д.1<br />
+Адрес для корреспонденции: 610000, г. Киров, а/я 9<br />
+Тел.: 8-800-555-24-95, +7 (8332) 71-42-42<br />
+Mail: <a href="mailto:sdesk@tradesoft.ru">sdesk@tradesoft.ru</a><br />
+Сайт: <a href="https://www.tradesoft.ru" target="_blank">www.tradesoft.ru</a>
+</p>
+	</div>
+	<div id="page_help_div">
+			</div>
+</div>
+			</div>
+
+		</div>
+
+	
+	
+	</div>
+</body></html>

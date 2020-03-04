@@ -1,10 +1,12 @@
 <?php namespace modification;
 
+use Pages\Admin\OrderPositionsPage;
+use Pages\Admin\OrdersPage;
 use Pages\Client\BasketClientPage;
 use Pages\Client\MakeOrderClientPage;
 use Pages\Client\MyOrdersPage;
 use Pages\Client\SearchClientPage;
-use Pages\AdminPage;
+
 
 /**
  * 445822 Данный класс проверяет проверяет работу доработки “Замена направления в заказах”
@@ -35,9 +37,13 @@ class DirectionsCest
      */
     protected $myOrdersPage;
     /**
-     * @var AdminPage
+     * @var OrderPositionsPage
      */
-    protected $adminPage;
+    protected $orderPositionsPage;
+    /**
+     * @var OrdersPage
+     */
+    protected $ordersPage;
 
 
     public function _before(\AcceptanceTester $I)
@@ -46,7 +52,8 @@ class DirectionsCest
         $this->makeOrderPage = new MakeOrderClientPage($I);
         $this->basketPage = new BasketClientPage($I);
         $this->myOrdersPage = new MyOrdersPage($I);
-        $this->adminPage = new AdminPage($I);
+        $this->orderPositionsPage = new OrderPositionsPage($I);
+        $this->ordersPage = new OrdersPage($I);
 
         /**
          * Заполнение форм для поиска
@@ -64,6 +71,7 @@ class DirectionsCest
             'crossBrand' => 'MAHLE',
             'direction' => 'Тестовое направление',
             'realDirection' => 'TATPARTS 565',
+            'newDirection' => 'Киров',
             'nameAndBrand' => 'MAHLE, ФИЛЬТР ТОПЛИВНЫЙ'
         ];
     }
@@ -98,7 +106,7 @@ VALUES
         $BasketClientPage = $this->basketPage;
         $MakeOrderClientPage = $this->makeOrderPage;
 
-        $I->wantTo('Проверить оформление заказа');
+        $I->wantTo('Оформить тестовый заказ');
 
         $BasketClientPage->goPage();
         $BasketClientPage->cleanBasket();
@@ -146,9 +154,12 @@ VALUES
      */
     public function directionsNotMatchAdmin(\AcceptanceTester $I)
     {
-        $AdminPage = $this->adminPage;
-        $AdminPage->authAdmin();
-
+        $orderPositionsPage = $this->orderPositionsPage;
+        $I->wantTo('Направления в админке не совпадают');
+        $orderPositionsPage->authAdmin();
+        $orderPositionsPage->goPage();
+        $orderPositionsPage->checkDisplayRealDirection($this->searchRow, $this->searchRow['realDirection']);
+        $orderPositionsPage->checkDisplayClientDirection($this->searchRow);
     }
 
     /**
@@ -172,7 +183,43 @@ VALUES
      */
     public function directionsHaveNotChanged(\AcceptanceTester $I)
     {
+        $I->wantTo('Изменить направление позиции ЗК');
+        $orderPositionsPage = $this->orderPositionsPage;
+        $orderPositionsPage->authAdmin();
+        $orderPositionsPage->goPage();
+        $orderPositionsPage->changeDirection($this->searchRow);
 
+        $I->amGoingTo('Проверить направления в админке');
+        $orderPositionsPage->goPage();
+        $orderPositionsPage->checkDisplayRealDirection($this->searchRow, $this->searchRow['newDirection']);
+        $orderPositionsPage->checkDisplayClientDirection($this->searchRow);
+
+        $I->amGoingTo('Проверить направления в клиентской части');
+        $MakeOrderClientPage = $this->makeOrderPage;
+        $MakeOrderClientPage->resetLoginClient();
+        $MakeOrderClientPage->authClient();
+        $MyOrdersPage = $this->myOrdersPage;
+
+        $MyOrdersPage->goPage();
+        $MyOrdersPage->checkDisplayDirection($this->searchRow);
     }
 
+    public function clearTestData(\AcceptanceTester $I)
+    {
+        $I->wantTo('Очистить тестовые данные');
+
+        $I->amConnectedToDb(self::DB_NAME_AR);
+        /** @lang SQL */
+        $query = '
+DELETE FROM complex_search_replace
+WHERE cre_destination_replace = \'Тестовое направление\';
+';
+        $I->executeSql($query);
+
+        $I->amGoingTo('Удалить тестовый заказ');
+        $ordersPage = $this->ordersPage;
+        $ordersPage->authAdmin();
+        $ordersPage->goPage();
+        $ordersPage->deleteLastOrder();
+    }
 }
