@@ -46,6 +46,7 @@ class SearchClientPage extends \Pages\ClientPage
     const TD_ARTICLE = '//td[contains(@class,"col_article")]';
     const TD_BRAND = '//td[contains(@class, "col_prd_info_link")]';
     const TD_NAME = '//td[@class="col_spare_info"]';
+    const TD_DIRECTION = '//td[contains(@class, "col_destination_display")]';
 
     public function getCheckElement()
     {
@@ -182,6 +183,19 @@ class SearchClientPage extends \Pages\ClientPage
     {
         $I = $this->user;
         $I->dontSeeElement($this->getTableRow($searchRow));
+    }
+
+    /**
+     * Проверяет направление позиции в поиске
+     *
+     * @param array $searchRow
+     * @throws \Exception
+     */
+    public function checkDisplayDirection(array $searchRow, $direction)
+    {
+        $I = $this->user;
+        $xpathRow = $this->getTableRow($searchRow) . static::TD_DIRECTION;
+        $I->see($direction, $xpathRow);
     }
 
     /**

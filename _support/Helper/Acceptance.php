@@ -67,4 +67,14 @@ class Acceptance extends \Codeception\Module
             return false;
         }
     }
+
+    /**
+     * Clears the cookies
+     * @return mixed
+     * @throws \Codeception\Exception\ModuleException
+     */
+    function clearAllCookies()
+    {
+        return $this->getModule('WebDriver')->webDriver->manage()->deleteAllCookies();
+    }
 }
